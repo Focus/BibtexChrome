@@ -1,0 +1,84 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+<script src="citation.js"></script>
+<script src="file.js"></script>
+<script src="fetchbibs.js"></script>
+
+
+
+
+
+
+<div id="search">
+<form>Author: &nbsp&nbsp <input type="text" name="author" />   &nbsp&nbsp&nbsp&nbsp   Title: &nbsp&nbsp <input type="text" name="title" />  &nbsp&nbsp <input type="button" id="searchButton" value="Search" /> </form>
+</div>
+
+<div id="searchBox">
+&nbsp
+</div>
+
+<div id="file">
+<input type="button" id="fileNew" value="New" /><input type="file" id="fileOpen" value="Open" /><input type="button" id="fileSave" value="Save" />
+</div>
+
+<div id="tables">
+<div id="left">
+<h3>Search Results</h3>
+<table id="searchTable">
+	<col width="10px" />
+    <col width="10px" />
+    <col width="30px" />
+    <col width="20px" />
+    <col width="10px" />
+	<tr class="title">
+		<td>Name</td><td>Type</td><td>Title</td><td>Author</td><td>Year</td>
+	</tr>
+	<tr>
+		<td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
+	</tr>
+	<tr>
+		<td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
+	</tr>
+	<tr>
+		<td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
+	</tr>
+	<tr>
+		<td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
+	</tr>
+	<tr>
+		<td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td>
+	</tr>
+</table>
+</div>
+<div id="middle">
+<input type="button" id="addBibs" value="Add >>" />
+</div>
+
+<div id="right">
+<h3 id="filename">untitled.bib</h3>
+<table id="localTable">
+<col width="10px" />
+    <col width="10px" />
+    <col width="30px" />
+    <col width="20px" />
+    <col width="10px" />
+	<tr class="title">
+		<td>Name</td><td>Type</td><td>Title</td><td>Author</td><td>Year</td>
+	</tr>
+	<tr class="localRow">
+		<td><div contenteditable class="editDiv"></div></td><td><div contenteditable class="editDiv"></div></td><td><div contenteditable class="editDiv"></div></td><td><div contenteditable class="editDiv"></div></td><td><div contenteditable class="editDiv"></div></td>
+	</tr>
+</table>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
+
