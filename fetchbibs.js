@@ -5,7 +5,7 @@ var lastSelectedRow;
 
 document.addEventListener('DOMContentLoaded', function() {
 	searchBox = document.getElementById("searchBox");
-	document.getElementById("searchButton").addEventListener("click",fetchBibs);
+	document.getElementById("submitSearch").addEventListener("click",fetchBibs);
 	updateSearchTable();
 });
 
@@ -57,16 +57,15 @@ function rowClicked(e){
 function fetchBibs(){
 	var url = "http://www.ams.org/mathscinet/search/publications.html?"
 		+ "pg4=AUCN&s4="
-		+ document.getElementsByName("author")[0].value
+		+ document.getElementById("author").innerHTML
 		+ "&pg5=TI&s5="
-		+ document.getElementsByName("title")[0].value
+		+ document.getElementById("title").innerHTML
 		+ "&fmt=bibtex&extend=1";
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url, true);
 	xhr.onload = updateSearch;
-	searchBox.innerHTML = Date() + ": please wait...";
 	if(!xhr.send()){
-		searchBox.innerHTML = Date() + ": Failed to retreive results";
+		searchBox.innerHTML = Date() + ": Failed to retreive results<br />" + searchBox.innerHTML;
 	}
 }
 

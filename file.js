@@ -1,13 +1,13 @@
-var fileInput;
 var colNames = ["name", "type", "title", "author", "year"];
 var table;
 var fileName;
 var edit = 0;
 var order = [1, 1, 1, 1, 1];
 var localBibs = [];
+var file = null;
+
 document.addEventListener('DOMContentLoaded', function() {
-	fileInput = document.getElementById("fileOpen");
-	fileInput.addEventListener("change", readFile, false);
+	document.getElementById("fileOpen").addEventListener("click", readFile);
 	table = document.getElementById("localTable");
 	fileName = document.getElementById("filename");
 	hookDivs();
@@ -24,17 +24,20 @@ function hookDivs(){
 }
 
 function readFile(e){
-	var file = e.target.files[0];
-	if(!file)
-		return;
-	fileName.innerHTML = file.name;
-	edit = 0;
-	var reader = new FileReader();
-	reader.onload = updateLocalBibs;
-	reader.readAsText(file);
+	chrome.fileSystem.chooseEntry({type: "openFile"},function (entry) {
+		edit = 0;
+		entry.file(function(file){
+			var reader = new FileReader();
+			reader.onload = updateLocalBibs;
+			reader.readAsText(file);
+			fileName.innerHTML = file.name;
+		});
+		fileEntry = enrty;
+	});
 }
 
 function updateLocalBibs(e){
+	console.log(e);
 	var bibs = e.target.result.split("@");
 	localBibs = [];
 	for(var i=1; i < bibs.length; i++)
@@ -55,14 +58,14 @@ function updateLocalTable(){
 		row.insertCell(4).innerHTML = "<div contenteditable class='editDiv'>" + localBibs[i].getString("year") + "</div>";
 	}
 
-		var row = table.insertRow(table.rows.length);
-		row.insertCell(0).innerHTML = "<div contenteditable class='editDiv'> </div>";
-		row.insertCell(1).innerHTML = "<div contenteditable class='editDiv'> </div>";
-		row.insertCell(2).innerHTML = "<div contenteditable class='editDiv'> </div>";
-		row.insertCell(3).innerHTML = "<div contenteditable class='editDiv'> </div>";
-		row.insertCell(4).innerHTML = "<div contenteditable class='editDiv'> </div>";
+	var row = table.insertRow(table.rows.length);
+	row.insertCell(0).innerHTML = "<div contenteditable class='editDiv'> </div>";
+	row.insertCell(1).innerHTML = "<div contenteditable class='editDiv'> </div>";
+	row.insertCell(2).innerHTML = "<div contenteditable class='editDiv'> </div>";
+	row.insertCell(3).innerHTML = "<div contenteditable class='editDiv'> </div>";
+	row.insertCell(4).innerHTML = "<div contenteditable class='editDiv'> </div>";
 
-		hookDivs();
+	hookDivs();
 }
 
 function localEdit(e){
@@ -95,12 +98,12 @@ function rearrangeLocalTable(e){
 		var ent1 = a.getString(name);
 		var ent2 = b.getString(name);
 		if(!ent1)
-			return order;
-		if(!ent2)
-			return -order;
-		ent1 = ent1.toLowerCase();
-		ent2 = ent2.toLowerCase();
-		return ent1.localeCompare(ent2)*order[ind];
+		return order;
+	if(!ent2)
+		return -order;
+	ent1 = ent1.toLowerCase();
+	ent2 = ent2.toLowerCase();
+	return ent1.localeCompare(ent2)*order[ind];
 	});
 	updateLocalTable();
 	order[ind] = -order[ind];

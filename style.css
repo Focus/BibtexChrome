@@ -2,6 +2,12 @@
 * {
 	padding:0;
 	margin:0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 html{
@@ -14,11 +20,11 @@ div#left{
 	cursor: default;
 }
 
-div#middle{
+#add{
 	float: left;
 	width: 5%;
-	padding:10px;
-	padding-top:80px;
+	margin:10px;
+	margin-top:80px;
 }
 
 div#right{
@@ -33,8 +39,11 @@ div#right{
 }
 
 #file{
-	padding:5px;
-	margin-left:10px;
+	margin-right:10px;
+	float: left;
+	padding:12px;
+	font-size:1.2em;
+	font-weight:bold;
 }
 
 h3{
@@ -46,12 +55,6 @@ table{
 	table-layout:fixed;
 	width: 100%;
 	font-size:0.8em;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 td{
@@ -61,11 +64,7 @@ td{
 	overflow: hidden;
 }
 
-#search{
-	padding:12px;
-	font-size:1.2em;
-	font-weight:bold;
-}
+
 
 input[type="text"]{
 	font-size:0.83em;
@@ -81,7 +80,7 @@ input[type="button"], input[type="file"]{
 .title {
 	font-size:1.2em;
 	font-weight:bold;
-	cursor: default;
+	cursor: pointer;
 }
 
 .title td{
@@ -90,9 +89,135 @@ input[type="button"], input[type="file"]{
 }
 
 #searchBox{
-	padding:20px;
+	margin-top:40px;
+	margin-left:20px;
+	height:70px;
+	width: 600px;
+	border: 1px solid;
+	overflow:auto;
+	font-weight: normal;
+	font-size: 0.8em;
 }
 
 .selected {
     background: lightBlue
+}
+
+#search{
+	float: right;
+	margin-right:100px;
+	padding:12px;
+	font-size:1.2em;
+	font-weight:bold;
+}
+#author, #title{
+	width:200px;
+	font-weight: normal;
+	float: left;
+	border:1px solid;
+	margin-left:10px;
+	margin-right:40px;
+	font-size: 0.9em;
+}
+
+.searchTag{
+	float: left;
+	margin-top:1px;
+}
+
+#submitSearch{
+	float: left;
+}
+
+
+
+
+
+
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#111111;
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	cursor: pointer;
+	padding-left:10px;
+	padding-right:10px;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.fileButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	-webkit-border-top-left-radius:37px;
+	-moz-border-radius-topleft:37px;
+	border-top-left-radius:37px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:37px;
+	-moz-border-radius-bottomright:37px;
+	border-bottom-right-radius:37px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#111111;
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	cursor: pointer;
+	padding-left:10px;
+	padding-right:10px;
+}
+.fileButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}.fileButton:active {
+	position:relative;
+	top:1px;
 }

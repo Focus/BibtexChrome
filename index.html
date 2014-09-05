@@ -5,28 +5,34 @@
 <body>
 <script src="citation.js"></script>
 <script src="file.js"></script>
-<script src="fetchbibs.js"></script>
+<script src="fetchBibs.js"></script>
 
 
 
 
+<div id="file">
+		<div id="fileNew" class="fileButton">New</div>
+		<div id="fileOpen" class="fileButton">Open</div>
+		<div id="fileSave" class="fileButton">Save</div>
+		<div id="fileSaveAs" class="fileButton">Save As</div>
+</div>
 
 
 <div id="search">
-<form>Author: &nbsp&nbsp <input type="text" name="author" />   &nbsp&nbsp&nbsp&nbsp   Title: &nbsp&nbsp <input type="text" name="title" />  &nbsp&nbsp <input type="button" id="searchButton" value="Search" /> </form>
+		<div class="searchTag">Author:</div>
+		<div contenteditable id="author"></div>
+		<div class="searchTag">Title:</div>
+		<div contenteditable id="title"></div>
+		<div id="submitSearch" class="button">Search</div>
+		
+		<div id="searchBox"></div>
 </div>
 
-<div id="searchBox">
-&nbsp
-</div>
 
-<div id="file">
-<input type="button" id="fileNew" value="New" /><input type="file" id="fileOpen" value="Open" /><input type="button" id="fileSave" value="Save" />
-</div>
 
 <div id="tables">
-<div id="left">
-<h3>Search Results</h3>
+	<div id="left">
+		<h3>Search Results</h3>
 <table id="searchTable">
 	<col width="10px" />
     <col width="10px" />
@@ -53,9 +59,7 @@
 	</tr>
 </table>
 </div>
-<div id="middle">
-<input type="button" id="addBibs" value="Add >>" />
-</div>
+<div id="add" class="button">Add &nbsp >></div>
 
 <div id="right">
 <h3 id="filename">untitled.bib</h3>

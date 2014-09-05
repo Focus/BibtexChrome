@@ -4,14 +4,16 @@
 	"version": "0.1",
 	"manifest_version": 2,
 	"icons": { "16": "icons/icon16.png",
-           "48": "icons/icon48.png",
-          "128": "icons/icon128.png" },
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png" },
 	"app": {
 		"background": {
 			"scripts": ["background.js"]
 		}
 	},
 	"permissions": [
-    "http://www.ams.org/mathscinet/search/*"
-  ]
+		"http://www.ams.org/mathscinet/search/*",
+		"contextMenus",
+		{"fileSystem": ["write"]}
+	]
 }
