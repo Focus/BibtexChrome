@@ -3,6 +3,7 @@ var colNames = ["name", "type", "title", "author", "year"];
 var table;
 var fileName;
 var edit = 0;
+var order = [1, 1, 1, 1, 1];
 var localBibs = [];
 document.addEventListener('DOMContentLoaded', function() {
 	fileInput = document.getElementById("fileOpen");
@@ -10,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	table = document.getElementById("localTable");
 	fileName = document.getElementById("filename");
 	hookDivs();
+	var tds = document.getElementById("localTable").getElementsByClassName("title")[0].getElementsByTagName("td");
+	for(var i = 0; i < tds.length; i++)
+		tds[i].addEventListener('click', rearrangeLocalTable);
 });
 
 
@@ -79,6 +83,28 @@ function localEdit(e){
 		cite = localBibs[row-1];
 	cite.replaceString(colNames[col],e.innerHTML);
 	if(!edit){
+		edit = 1;
+		fileName.innerHTML += "*";
+	}
+}
+
+function rearrangeLocalTable(e){
+	var name = e.target.innerHTML;
+	var ind = e.target.cellIndex;
+	localBibs.sort(function(a,b){
+		var ent1 = a.getString(name);
+		var ent2 = b.getString(name);
+		if(!ent1)
+			return order;
+		if(!ent2)
+			return -order;
+		ent1 = ent1.toLowerCase();
+		ent2 = ent2.toLowerCase();
+		return ent1.localeCompare(ent2)*order[ind];
+	});
+	updateLocalTable();
+	order[ind] = -order[ind];
+	if(!edit && localBibs.length > 0){
 		edit = 1;
 		fileName.innerHTML += "*";
 	}
